@@ -1,0 +1,58 @@
+<table class="table" style="width: 100%">
+  <tr>
+    <td  style="width: 40%" colspan="2">
+      <h4>Ano </h4>
+      <select #mySelectAno (change)='onOptionsSelectedAno(mySelectAno.value)'>
+        <option></option>
+        <option *ngFor="let lst of cbmAno" value={{lst}}>
+          {{lst}}
+        </option>
+      </select>
+    </td>
+    <td  style="width: 60%">
+      <h4>Nome </h4>
+      <select #mySelectAnoAluno (change)='onOptionsSelectedAluno(mySelectAnoAluno.value)'>
+        <option></option>
+        <option *ngFor="let aluno of cbmAluno" value={{aluno.idAluno}}>
+          {{aluno.nomeAluno}}
+        </option>
+      </select>
+    </td>
+  </tr>
+</table>
+
+<table class="table">
+  <tr>
+    <td>Nome</td>
+    <td>Ano</td>
+    <td>Disciplina</td>
+    <td>P1 </td>
+    <td>P2 </td>
+    <td>P3 </td>
+  </tr>
+  <ng-container *ngFor="let item of notaAlunos;let i = index">
+      <ng-container *ngFor="let ntIten of item.notas;let i = index">
+  
+  <tr>
+    <td>
+      {{item.nomeAluno}}
+    </td>
+    <td>
+        {{ntIten.ano}}
+    </td>
+    <td>
+        {{ntIten.disciplina['nomeDisciplina']}}
+    </td>
+    <td>
+        {{ntIten.p1}}
+    </td>
+    <td>
+        {{ntIten.p2}}
+    </td>
+    <td>
+        {{ntIten.p3}}
+    </td>
+  </tr>
+  </ng-container> 
+</ng-container>
+</table>
